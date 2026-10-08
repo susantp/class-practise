@@ -1,10 +1,14 @@
 @startuml
 class Product {
-    -int id
-    -String name
-    -int qty
-    -double unitPrice
-    +double calculateTotal()
+    -id: int
+    -name: String
+    -qty: int
+    -unitPrice: double
+    +getId(): int
+    +getName(): String
+    +getQty(): int
+    +getUnitPrice(): double
+    +calculateTotal(): double
 }
 
 @enduml
