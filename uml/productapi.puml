@@ -1,0 +1,10 @@
+@startuml
+class Product {
+    -int id
+    -String name
+    -int qty
+    -double unitPrice
+    +double calculateTotal()
+}
+
+@enduml
