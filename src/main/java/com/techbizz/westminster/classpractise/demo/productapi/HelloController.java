@@ -1,4 +1,4 @@
-package com.techbizz.westminster.classpractise.demo.products;
+package com.techbizz.westminster.classpractise.demo.productapi;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

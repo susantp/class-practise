@@ -1,4 +1,4 @@
-package com.techbizz.westminster.classpractise.demo.products;
+package com.techbizz.westminster.classpractise.demo.productapi;
 
 public class Product {
     private int id;
