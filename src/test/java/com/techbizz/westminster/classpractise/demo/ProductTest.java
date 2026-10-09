@@ -9,7 +9,7 @@ public class ProductTest {
     @Test
     public void testProduct() {
         Product product = new Product(11, "Laptop", 20, true, 12.33);
-        assertEquals(113, product.getId());
+        assertEquals(11, product.getId());
         assertEquals("Laptop", product.getName());
     }
 }
