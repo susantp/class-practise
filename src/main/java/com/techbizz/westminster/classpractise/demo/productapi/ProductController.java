@@ -17,25 +17,14 @@ public class ProductController {
     @GetMapping("/{id}")
     public Product getById(@PathVariable int id) {
 
-        return new Product(
-                id,
-                "Laptop",
-                10,
-                true,
-                99.99);
+        return new Product(id, "Laptop", 10, true, 99.99);
     }
 
     @GetMapping("/all-single")
     public Map<String, Object> allSingleInstance() {
         List<Product> productList = new ArrayList<>();
         int id = 123;
-        Product product = new Product(
-                id,
-                "Product-" + id,
-                20,
-                true,
-                199.99
-        );
+        Product product = new Product(id, "Product-" + id, 20, true, 199.99);
         for (int index = 0; index <= 4; index++) {
             id += index;
             productList.add(product);
@@ -57,13 +46,8 @@ public class ProductController {
         int id = 123;
         for (int index = 0; index <= 4; index++) {
             id += index;
-            productList.add(new Product(
-                    id + index,
-                    "Product-" + id,
-                    20,
-                    id % 2 == 0,
-                    199.99
-            ));
+            Product product = new Product(id + index, "Product-" + id, 20, id % 2 == 0, 199.99);
+            productList.add(product);
         }
 
         return Map.of(
