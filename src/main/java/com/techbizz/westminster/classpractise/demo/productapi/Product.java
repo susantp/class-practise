@@ -1,5 +1,7 @@
 package com.techbizz.westminster.classpractise.demo.productapi;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+
 public class Product {
     private int id;
     private String name;
@@ -8,6 +10,11 @@ public class Product {
     private double unitPrice;
 
     private static int instanceCount = 0;
+
+    @JsonCreator
+    public Product() {
+        this(0, null, 0, false, 0.0);
+    }
 
     public Product(int id, String name, int qty, boolean inStock, double unitPrice) {
         instanceCount++;
