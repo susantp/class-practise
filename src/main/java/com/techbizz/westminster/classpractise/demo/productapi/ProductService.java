@@ -25,6 +25,15 @@ public class ProductService {
     }
 
     public Product addProduct(Product product) {
+        DigitalProduct dp = new DigitalProduct(112,
+                "Digital Product",
+                2,
+                true,
+                34.99,
+                "http://xsdfa.com/file/3434",
+                23.33);
+
+
         product.setId(nextId++);
         products.add(product);
         return product;
