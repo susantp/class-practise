@@ -19,4 +19,10 @@ public class PhysicalProduct extends Product {
     public String getDimensions() {
         return this.dimensions;
     }
+
+    @Override
+    public String getSummary() {
+        return "Physical: " + getName()
+                + " | " + weightKg + "kg";
+    }
 }

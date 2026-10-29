@@ -72,4 +72,12 @@ public class Product {
     public static int getInstanceCount() {
         return instanceCount;
     }
+
+    public String onFulfillOrder() {
+        return "order fulfilled";
+    }
+
+    public String getSummary() {
+        return name + " — £" + unitPrice;
+    }
 }
