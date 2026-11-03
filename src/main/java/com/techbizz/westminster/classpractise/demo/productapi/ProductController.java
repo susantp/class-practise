@@ -33,26 +33,6 @@ public class ProductController {
         return productService.addProduct(product);
     }
 
-    @GetMapping("/all-single")
-    public Map<String, Object> allSingleInstance() {
-        List<Product> productList = new ArrayList<>();
-        int id = 123;
-        Product product = new Product(id, "Product-" + id, 20, true, 199.99);
-        for (int index = 0; index <= 4; index++) {
-            id += index;
-            productList.add(product);
-
-            product.setId(id + index);
-            product.setName("Product " + index);
-            product.setInStock(id % 2 == 0);
-        }
-
-        return Map.of(
-                "Total Instance Count", Product.getInstanceCount(),
-                "Total Products", productList
-        );
-    }
-
     @GetMapping("/inherited")
     public List<Product> inherited() {
         return productService.addGetInheritedProduct();
