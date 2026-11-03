@@ -40,11 +40,6 @@ public class ProductService {
     }
 
     public List<Product> addGetInheritedProduct() {
-        Product p = new Product(133,
-                "Base Product",
-                10,
-                true,
-                10.99);
         Product dp = new DigitalProduct(112,
                 "Digital Product",
                 2,
@@ -59,7 +54,6 @@ public class ProductService {
                 11.99,
                 3.09,
                 "20x10");
-        products.add(p);
         products.add(dp);
         products.add(physicalProduct);
         return this.products;
