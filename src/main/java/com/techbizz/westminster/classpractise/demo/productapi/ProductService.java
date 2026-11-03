@@ -45,14 +45,14 @@ public class ProductService {
                 10,
                 true,
                 10.99);
-        DigitalProduct dp = new DigitalProduct(112,
+        Product dp = new DigitalProduct(112,
                 "Digital Product",
                 2,
                 true,
                 34.99,
                 "http://xsdfa.com/file/3434",
                 23.33);
-        PhysicalProduct physicalProduct = new PhysicalProduct(122,
+        Product physicalProduct = new PhysicalProduct(122,
                 "Physical Product",
                 3,
                 true,
