@@ -30,9 +30,9 @@ class ProductControllerTests {
                     .andExpect(jsonPath("$.name").value("Laptop"));
         }
 
-        mvc.perform(get("/products/1"))
+        mvc.perform(get("/products/112"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(1))
+                .andExpect(jsonPath("$.id").value(112))
                 .andExpect(jsonPath("$.name").value("Laptop"))
                 .andExpect(jsonPath("$.qty").value(2))
                 .andExpect(jsonPath("$.inStock").value(true))
