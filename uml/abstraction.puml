@@ -13,6 +13,7 @@ class DigitalProduct {
 + getDownloadUrl() : String
 + getSummary(): String
 + applyDiscount(double rate): void
++ getSummary(): String
 }
 class PhysicalProduct {
 - weightKg : double
@@ -20,6 +21,7 @@ class PhysicalProduct {
 + getWeightKg() : double
 + getSummary(): String
 + applyDiscount(double rate): void
++ getSummary(): String
 }
 interface Discountable {
 + applyDiscount(double rate): void
