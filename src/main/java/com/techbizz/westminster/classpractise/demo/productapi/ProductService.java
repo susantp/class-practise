@@ -24,19 +24,19 @@ public class ProductService {
                 .filter(p -> p.getName().contains(name)).toList();
     }
 
-    public Product addProduct(Product product) {
+    public Product addProduct(CreateProductRequest createProductRequest) {
         DigitalProduct dp = new DigitalProduct(112,
-                "Digital Product",
-                2,
-                true,
-                34.99,
+                createProductRequest.name(),
+                createProductRequest.qty(),
+                createProductRequest.inStock(),
+                createProductRequest.unitPrice(),
                 "http://xsdfa.com/file/3434",
                 23.33);
 
 
-        product.setId(nextId++);
-        products.add(product);
-        return product;
+        dp.setId(nextId++);
+        products.add(dp);
+        return dp;
     }
 
     public List<Product> addGetInheritedProduct() {
