@@ -9,7 +9,7 @@ import java.util.Optional;
 @Service
 public class ProductService {
     private final List<Product> products = new ArrayList<>();
-    private int nextId = 1;
+    private int nextId = 112;
 
     public List<Product> getAllProducts() {
         return products;
@@ -25,16 +25,7 @@ public class ProductService {
     }
 
     public Product addProduct(CreateProductRequest createProductRequest) {
-        DigitalProduct dp = new DigitalProduct(112,
-                createProductRequest.name(),
-                createProductRequest.qty(),
-                createProductRequest.inStock(),
-                createProductRequest.unitPrice(),
-                "http://xsdfa.com/file/3434",
-                23.33);
-
-
-        dp.setId(nextId++);
+        DigitalProduct dp = DigitalProduct.from(nextId++, createProductRequest);
         products.add(dp);
         return dp;
     }
