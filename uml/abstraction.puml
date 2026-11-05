@@ -1,0 +1,33 @@
+@startuml
+abstract class Product {
+- id : Long
+- name : String
+- price : double
++ getName() : String
++ getPrice() : double
+{abstract} + getSummary(): String
+}
+class DigitalProduct {
+- downloadUrl : String
+- fileSizeMB : double
++ getDownloadUrl() : String
++ getSummary(): String
++ applyDiscount(double rate): void
+}
+class PhysicalProduct {
+- weightKg : double
+- dimensions : String
++ getWeightKg() : double
++ getSummary(): String
++ applyDiscount(double rate): void
+}
+interface Discountable {
++ applyDiscount(double rate): void
++ getDiscountedPrice(): double
+}
+Product <|-- DigitalProduct
+Product <|-- PhysicalProduct
+Discountable <|.. DigitalProduct
+Discountable <|.. PhysicalProduct
+
+@enduml
