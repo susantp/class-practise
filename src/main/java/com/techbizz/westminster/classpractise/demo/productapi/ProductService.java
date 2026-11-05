@@ -61,4 +61,15 @@ public class ProductService {
     public void deleteProduct(int id) {
         products.removeIf(p -> p.getId() == id);
     }
+
+    public void applyDiscounts(List<Product> products) {
+        products.forEach(product -> {
+            if(product instanceof Discountable) {
+                ((Discountable) product).applyDiscount(0.10);
+            }
+        });
+    }
+    public List<Product> getDiscountedProducts() {
+        return products;
+    }
 }
