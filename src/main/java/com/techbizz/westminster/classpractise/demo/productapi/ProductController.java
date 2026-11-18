@@ -1,6 +1,7 @@
 package com.techbizz.westminster.classpractise.demo.productapi;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,26 +26,38 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public Object getById(@PathVariable int id) {
-        try {
-            return productService.getProductById(id);
-
-        } catch (RuntimeException e) {
-            return Map.of("error", "Product not found");
-        }
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<Product> getById(@PathVariable int id) {
+        /***
+            try {
+                Product product = productService.getProductById(id);
+                return ResponseEntity.ok(product);
+            }catch (Exception ex){
+                return ResponseEntity
+                        .status(HttpStatus.NOT_FOUND)
+                        .body(new ErrorResponse(
+                                ex.getMessage(), HttpStatus.NOT_FOUND.value()
+                        ));
+            }
+        ***/
+        Product product = productService.getProductById(id);
+        return ResponseEntity.ok(product);
     }
 
     @PostMapping("/")
+    @ResponseStatus(HttpStatus.CREATED)
     public Product add(@RequestBody CreateProductRequest productRequest) {
         return productService.addProduct(productRequest);
     }
 
     @GetMapping("/inherited")
+    @ResponseStatus(HttpStatus.OK)
     public List<Product> inherited() {
         return productService.addGetInheritedProduct();
     }
 
     @GetMapping("/override")
+    @ResponseStatus(HttpStatus.OK)
     public List<String> override() {
         productService.addGetInheritedProduct();
         List<String> overrideList = new ArrayList<>();
@@ -55,6 +68,7 @@ public class ProductController {
     }
 
     @GetMapping("/getDiscountedProducts")
+    @ResponseStatus(HttpStatus.OK)
     public List<Product> applyDiscount() {
         List<Product> products = productService.addGetInheritedProduct();
         productService.applyDiscounts(products);

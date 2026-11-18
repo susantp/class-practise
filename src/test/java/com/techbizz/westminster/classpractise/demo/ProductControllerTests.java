@@ -26,7 +26,7 @@ class ProductControllerTests {
                             .content("""
                                     {"name":"Laptop","qty":2,"inStock":true,"unitPrice":199.99}
                                     """))
-                    .andExpect(status().isOk())
+                    .andExpect(status().isCreated())
                     .andExpect(jsonPath("$.name").value("Laptop"));
         }
 

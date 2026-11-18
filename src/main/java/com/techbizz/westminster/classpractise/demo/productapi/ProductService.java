@@ -19,7 +19,7 @@ public class ProductService {
         return products.stream()
                 .filter(p -> p.getId() == id)
                 .findFirst()
-                .orElseThrow(() -> new RuntimeException("Product not found: " + id));
+                .orElseThrow(() -> new ProductNotFoundException(id));
     }
 
     public List<Product> findByName(String name) {
