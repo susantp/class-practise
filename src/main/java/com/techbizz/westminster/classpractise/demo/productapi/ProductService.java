@@ -15,8 +15,11 @@ public class ProductService {
         return products;
     }
 
-    public Optional<Product> getProductById(int id) {
-        return products.stream().filter(p -> p.getId() == id).findFirst();
+    public Product getProductById(int id) {
+        return products.stream()
+                .filter(p -> p.getId() == id)
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("Product not found: " + id));
     }
 
     public List<Product> findByName(String name) {

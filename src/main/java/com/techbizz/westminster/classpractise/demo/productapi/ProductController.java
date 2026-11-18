@@ -1,5 +1,7 @@
 package com.techbizz.westminster.classpractise.demo.productapi;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -23,9 +25,13 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public Product getById(@PathVariable int id) {
-        return productService.getProductById(id)
-                .orElse(null); // Lecture 6
+    public Object getById(@PathVariable int id) {
+        try {
+            return productService.getProductById(id);
+
+        } catch (RuntimeException e) {
+            return Map.of("error", "Product not found");
+        }
     }
 
     @PostMapping("/")
